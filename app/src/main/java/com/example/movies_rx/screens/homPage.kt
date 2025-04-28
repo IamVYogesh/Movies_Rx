@@ -49,9 +49,9 @@ fun HomePage(
     val onTextChange : (TextFieldValue) -> Unit = {searchText = it}
 
     val movies = viewModel.movies.value
-//    val filterMovies = movies.filter { movie ->
-//        movie.originalTitle.contains(searchText.text, ignoreCase = true)
-//    }
+    val filterMovies = movies.filter { movie ->
+        movie.originalTitle.contains(searchText.text, ignoreCase = true)
+    }
 
     Box (
         modifier =   Modifier.background(Color.Gray)
@@ -108,7 +108,7 @@ fun HomePage(
                     .fillMaxSize()
                     .padding(top = 8.dp),
                 content = {
-                    items(movies) { movie ->
+                    items(filterMovies) { movie ->
                         Card(
                             modifier = Modifier.fillMaxWidth()
                                 .height(180.dp)

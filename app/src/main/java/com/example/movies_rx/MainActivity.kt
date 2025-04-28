@@ -28,16 +28,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             Movies_RxTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+
                     Navigation(modifier = Modifier.padding(innerPadding))
 
-//                    val viewModel : MovieViewModel = viewModel()
-//                    val navController : NavController = rememberNavController()
-//
-//                    HomePage(
-//                        modifier = Modifier.padding(innerPadding),
-//                        viewModel = viewModel,
-//                        navController = navController
-//                    )
                 }
             }
         }

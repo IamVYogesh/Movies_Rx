@@ -26,21 +26,15 @@ class MovieViewModel @Inject constructor(private val api : ServiceApi) : ViewMod
 
     fun getMovies() {
         val subscription = api.getMovies()
-            .subscribeOn(Schedulers.io())          // network on background thread
-            .observeOn(AndroidSchedulers.mainThread()) // result on main thread
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { moviesList ->
-                    // Success: Set the movies to LiveData
                     _movies.value = moviesList.data
-                    Log.d("Movies", "Fetched movies!")
-                },
-                { error ->
-                    // Error
-                    Log.e("Movies", "Error")
                 }
             )
 
-        disposable.add(subscription)  // Add the subscription to dispose later
+        disposable.add(subscription)
 
     }
 
